@@ -11,4 +11,13 @@
   - Glacier
   - Glacier Deep Archive
 - Data Encrpytion
+- Kinesis
+  - Kinesis streams (for real-time machine learning applications)
+  - Kinesis data firehose (ingest massive data near real time)
+  - Kinesis data analytics (real-time ETL/ML algorithm on streams)
+  - Kinesis video stream (real-time video stream to create ML applications)
+  - destination: S3, redshift, elastic search, splunk, etc
+ 
+- Glue data catalog
+  - crawler: 
 
