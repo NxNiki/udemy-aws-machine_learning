@@ -28,5 +28,8 @@
 
 https://www.udacity.com/enrollment/nd189
 
+- Data Wrangler
+- Ground Truth
+
 
 
