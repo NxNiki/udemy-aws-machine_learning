@@ -1,3 +1,5 @@
+[sagemaker official tuturial](https://docs.aws.amazon.com/sagemaker/)
+
 # udemy-aws-machine_learning
 
 ## Section-2 Data Engineering
@@ -19,5 +21,12 @@
   - destination: S3, redshift, elastic search, splunk, etc
  
 - Glue data catalog
-  - crawler: 
+  - crawler:
+ 
+
+# udacity-aws-machine_learning:
+
+https://www.udacity.com/enrollment/nd189
+
+
 
