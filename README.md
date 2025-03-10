@@ -31,5 +31,8 @@ https://www.udacity.com/enrollment/nd189
 - Data Wrangler
 - Ground Truth
 
+## How to run a local Jupyter Notebook on sagemaker studio:
 
+1. login to Amazon SageMaker AI and create a notebook instance (wait till the instance is in service)
+2. 
 
