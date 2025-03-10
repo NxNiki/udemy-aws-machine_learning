@@ -34,5 +34,9 @@ https://www.udacity.com/enrollment/nd189
 ## How to run a local Jupyter Notebook on sagemaker studio:
 
 1. login to Amazon SageMaker AI and create a notebook instance (wait till the instance is in service)
-2. 
+2. start jupyterLab
+3. Upload Jupyter Notebook using the `up arrow` button in jupyterLab.
+
+amazon sagemaker example: https://github.com/aws/amazon-sagemaker-examples
+
 
