@@ -39,4 +39,12 @@ https://www.udacity.com/enrollment/nd189
 
 amazon sagemaker example: https://github.com/aws/amazon-sagemaker-examples
 
+## AutoGlue:
+
+An easy way to compare performance of different ML models:
+
+https://auto.gluon.ai/stable/index.html
+
+
+
 
