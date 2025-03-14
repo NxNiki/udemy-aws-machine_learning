@@ -45,6 +45,10 @@ An easy way to compare performance of different ML models:
 
 https://auto.gluon.ai/stable/index.html
 
+## project: bike sharing
+
+https://github.com/udacity/cd0385-project-starter
+
 
 
 
