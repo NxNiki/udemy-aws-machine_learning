@@ -50,5 +50,16 @@ https://auto.gluon.ai/stable/index.html
 https://github.com/udacity/cd0385-project-starter
 
 
+## xgboost:
+
+https://xgboost.readthedocs.io/en/latest/parameter.html
+
+## project and exercise:
+
+https://github.com/NxNiki/udacity-nd009t-C2-Developing-ML-Workflow
+
+
+
+
 
 
