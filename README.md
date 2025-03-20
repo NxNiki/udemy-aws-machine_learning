@@ -25,13 +25,15 @@
  
 
 # udacity-aws-machine_learning:
-
 https://www.udacity.com/enrollment/nd189
+
+
+## course 2: introduction to machine learning
 
 - Data Wrangler
 - Ground Truth
 
-## How to run a local Jupyter Notebook on sagemaker studio:
+### How to run a local Jupyter Notebook on sagemaker studio:
 
 1. login to Amazon SageMaker AI and create a notebook instance (wait till the instance is in service)
 2. start jupyterLab
@@ -39,24 +41,28 @@ https://www.udacity.com/enrollment/nd189
 
 amazon sagemaker example: https://github.com/aws/amazon-sagemaker-examples
 
-## AutoGluon:
+### AutoGluon:
 
 An easy way to compare performance of different ML models:
 
 https://auto.gluon.ai/stable/index.html
 
-## project: bike sharing
+### project: bike sharing
 
 https://github.com/udacity/cd0385-project-starter
 
+## course 3: develop ML workflow:
 
-## xgboost:
+### resources:
 
 https://xgboost.readthedocs.io/en/latest/parameter.html
+https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
 
-## project and exercise:
+### project and exercise:
 
 https://github.com/NxNiki/udacity-nd009t-C2-Developing-ML-Workflow
+
+###
 
 
 
