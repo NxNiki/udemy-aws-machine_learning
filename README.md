@@ -57,12 +57,16 @@ https://github.com/udacity/cd0385-project-starter
 
 https://xgboost.readthedocs.io/en/latest/parameter.html
 https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+https://docs.aws.amazon.com/sagemaker/latest/dg/blazingtext.html
+
 
 ### project and exercise:
 
 https://github.com/NxNiki/udacity-nd009t-C2-Developing-ML-Workflow
 
 ###
+
+
 
 
 
