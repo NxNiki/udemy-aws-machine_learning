@@ -58,6 +58,7 @@ https://github.com/udacity/cd0385-project-starter
 https://xgboost.readthedocs.io/en/latest/parameter.html
 https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
 https://docs.aws.amazon.com/sagemaker/latest/dg/blazingtext.html
+https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html
 
 
 ### project and exercise:
