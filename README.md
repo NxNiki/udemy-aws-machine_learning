@@ -76,6 +76,11 @@ https://github.com/NxNiki/udacity-nd009t-C2-Developing-ML-Workflow
 - With Lambda, as tasks are distributed redundantly across multiple machines.
 
 
+#### triger a lambda function synchronisely and asynchronisely.
+
+
+
+
 
 
 
