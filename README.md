@@ -71,7 +71,9 @@ https://github.com/NxNiki/udacity-nd009t-C2-Developing-ML-Workflow
 
 - A lambda function is executed when a playload is delivered to it. A payload is a JSON object which the Lambda function can read from as an input parameter.
 
-- 
+- lambda_handler function can return a response, as long as it can be formatted as a JSON object (dict and list).
+
+- With Lambda, as tasks are distributed redundantly across multiple machines.
 
 
 
