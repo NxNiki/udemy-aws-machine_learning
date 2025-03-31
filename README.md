@@ -65,7 +65,15 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html
 
 https://github.com/NxNiki/udacity-nd009t-C2-Developing-ML-Workflow
 
-###
+### lambda function:
+
+- Lambda is Amazon’s serverless compute service, which is ideal for small tasks that are frequently repeated.
+
+- A lambda function is executed when a playload is delivered to it. A payload is a JSON object which the Lambda function can read from as an input parameter.
+
+- 
+
+
 
 
 
