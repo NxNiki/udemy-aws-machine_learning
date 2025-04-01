@@ -92,7 +92,7 @@ aws lambda invoke --function-name preprocess-helloblze --payload '{"s3-dataset-u
 - function orchestration
 - branching
 
-> step functions can be expensive to run (> 100x lambda invocations)
+> step functions can be expensive to run (> 100x lambda invocations), so it suitable for complex workflow that is not highly frequently used.
 
   
 
