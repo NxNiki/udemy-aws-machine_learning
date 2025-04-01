@@ -78,7 +78,10 @@ https://github.com/NxNiki/udacity-nd009t-C2-Developing-ML-Workflow
 
 #### triger a lambda function synchronously and asynchronously.
 
-- aws lambda invoke --function-name preprocess-helloblze --payload '{"s3-dataset-uri": "udacity-sagemaker-solutiondata2021/l3e1/reviews_Musical_Instruments_5.json.zip"}' response.json
+- use aws CLI:
+```
+aws lambda invoke --function-name preprocess-helloblze --payload '{"s3-dataset-uri": "udacity-sagemaker-solutiondata2021/l3e1/reviews_Musical_Instruments_5.json.zip"}' response.json
+```
 - S3 trigger
 
 
