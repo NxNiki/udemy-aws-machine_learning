@@ -94,6 +94,10 @@ aws lambda invoke --function-name preprocess-helloblze --payload '{"s3-dataset-u
 
 > step functions can be expensive to run (> 100x lambda invocations), so it suitable for complex workflow that is not highly frequently used.
 
+https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html
+
+
+
   
 
 
