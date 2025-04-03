@@ -96,6 +96,13 @@ aws lambda invoke --function-name preprocess-helloblze --payload '{"s3-dataset-u
 
 https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html
 
+#### toubleshooting:
+
+if has error installing stepfunctions:
+```
+pip install --upgrade pip setuptools wheel
+```
+
 
 
   
