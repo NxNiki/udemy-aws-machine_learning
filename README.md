@@ -103,6 +103,16 @@ if has error installing stepfunctions:
 pip install --upgrade pip setuptools wheel
 ```
 
+permission issue:
+
+ClientError: An error occurred (AccessDeniedException) when calling the CreateStateMachine operation: User: 
+arn:aws:sts::510096416228:assumed-role/AmazonSageMaker-ExecutionRole-20250321T133435/SageMaker is not authorized to
+perform: iam:PassRole on resource: arn:aws:iam::510096416228:role/xin-stepfunction because no identity-based policy
+allows the iam:PassRole action
+
+Attach the IAMFullAccess and StepFunctionsFullAccess policies to the SageMaker execution role (ExecutionRole-20250321T133435) of the notebook instance.
+Also need to attach the CloudWatchEventsFullAccess and SageMakerFullAccess policies to Step Functions role (xin-stepfunction).
+
 
 
   
