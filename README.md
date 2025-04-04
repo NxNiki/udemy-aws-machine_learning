@@ -119,7 +119,7 @@ Also need to attach the CloudWatchEventsFullAccess and SageMakerFullAccess polic
 
 ### resources:
 
-[DL frameworks](https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/)
+[A comparison of DL frameworks](https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/)
   
 
 
