@@ -115,7 +115,11 @@ Attach the IAMFullAccess and StepFunctionsFullAccess policies to the SageMaker e
 Also need to attach the CloudWatchEventsFullAccess and SageMakerFullAccess policies to Step Functions role (xin-stepfunction).
 
 
+## course 4: Deep learning with CV and NLP
 
+### resources:
+
+[DL frameworks](https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/)
   
 
 
