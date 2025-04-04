@@ -55,11 +55,11 @@ https://github.com/udacity/cd0385-project-starter
 
 ### resources:
 
-https://xgboost.readthedocs.io/en/latest/parameter.html
-https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
-https://docs.aws.amazon.com/sagemaker/latest/dg/blazingtext.html
-https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html
-[VSstudio extention](https://marketplace.visualstudio.com/items?itemName=paulshestakov.aws-step-functions-constructor) to construct stepfunctions.
+- [xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+- [aws doc boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+- [aws doc blazingtext](https://docs.aws.amazon.com/sagemaker/latest/dg/blazingtext.html)
+- [aws doc sagemaker](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html)
+- [VSstudio extention](https://marketplace.visualstudio.com/items?itemName=paulshestakov.aws-step-functions-constructor) to construct stepfunctions.
 
 
 ### project and exercise:
