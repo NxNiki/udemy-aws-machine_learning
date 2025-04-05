@@ -119,9 +119,9 @@ Also need to attach the CloudWatchEventsFullAccess and SageMakerFullAccess polic
 
 ### resources:
 
-[A comparison of DL frameworks](https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/)
-[loss functions](https://pytorch.org/docs/stable/nn.html#loss-functions)
-[optimizer](https://pytorch.org/docs/stable/optim.html)
+- [A comparison of DL frameworks](https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/)
+- [loss functions](https://pytorch.org/docs/stable/nn.html#loss-functions)
+- [optimizer](https://pytorch.org/docs/stable/optim.html)
 
 
   
