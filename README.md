@@ -131,8 +131,10 @@ You may use CrossEntropyLoss instead, if you prefer not to add an extra layer.
 Always pair sigmoid activation with Binary Cross-Entropy (BCE) for classification tasks involving independent probabilities. For regression within 
 [0,1], BCE or MSE can work, but BCE is more principled.
 
+The activation function in the output layer determines whether the predicted classes are treated as independent (each class is predicted separately) or mutually exclusive (classes compete, and probabilities sum to 1).
 
-  
+> Sigmoid + BCE: Use when an input can belong to multiple classes simultaneously (e.g., medical diagnoses: a patient might have both "diabetes" and "hypertension").
+> Softmax + CCE: Use when classes are mutually exclusive (e.g., handwritten digit recognition: a digit can’t be "2" and "3" at the same time).
 
 
 
