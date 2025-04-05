@@ -123,6 +123,14 @@ Also need to attach the CloudWatchEventsFullAccess and SageMakerFullAccess polic
 - [loss functions](https://pytorch.org/docs/stable/nn.html#loss-functions)
 - [optimizer](https://pytorch.org/docs/stable/optim.html)
 
+Loss function and activation function in the output layer:
+
+Obtaining log-probabilities in a neural network is easily achieved by adding a LogSoftmax layer in the last layer of your network. 
+You may use CrossEntropyLoss instead, if you prefer not to add an extra layer.
+
+Always pair sigmoid activation with Binary Cross-Entropy (BCE) for classification tasks involving independent probabilities. For regression within 
+[0,1], BCE or MSE can work, but BCE is more principled.
+
 
   
 
