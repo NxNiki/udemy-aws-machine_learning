@@ -122,6 +122,8 @@ Also need to attach the CloudWatchEventsFullAccess and SageMakerFullAccess polic
 - [A comparison of DL frameworks](https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/)
 - [loss functions](https://pytorch.org/docs/stable/nn.html#loss-functions)
 - [optimizer](https://pytorch.org/docs/stable/optim.html)
+- [sagemaker parameter](https://sagemaker.readthedocs.io/en/stable/api/training/parameter.html)
+- [sagemaker hyperparameter tuner](https://sagemaker.readthedocs.io/en/stable/api/training/tuner.html)
 
 Loss function and activation function in the output layer:
 
