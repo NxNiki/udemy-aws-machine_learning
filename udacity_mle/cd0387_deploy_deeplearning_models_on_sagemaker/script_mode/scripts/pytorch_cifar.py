@@ -108,14 +108,14 @@ def main():
     ) # TODO: Create your transform
     
     # TODO: Add the CIFAR10 dataset and create your data loaders
-    dataset = 
-    train_loader =
-    test_loader = 
-    
+    dataset1 = datasets.CIFAR10("../data", train=True, download=True, transform=transform)
+    dataset2 = datasets.CIFAR10("../data", train=False, transform=transform)
+    train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
+    test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
     model = Net()
 
-    optimizer = # TODO: Add your optimizer
+    optimizer = optim.Adadelta(model.parameters(), lr=args.lr) # TODO: Add your optimizer
 
     for epoch in range(1, args.epochs + 1):
         train(model, train_loader, optimizer, epoch)
