@@ -34,7 +34,18 @@ def net():
     TODO: Complete this function that initializes your model
           Remember to use a pretrained model
     '''
-    pass
+
+    model = models.resnet18(weights=True)
+
+    for param in model.parameters():
+        param.requires_grad = False   
+
+    num_features=model.fc.in_features
+    model.fc = nn.Sequential(
+                   nn.Linear(num_features, 10))
+    return model
+
+    
 
 def create_data_loaders(data, batch_size):
     '''
@@ -52,8 +63,8 @@ def main(args):
     '''
     TODO: Create your loss and optimizer
     '''
-    loss_criterion = None
-    optimizer = None
+    loss_criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
     
     '''
     TODO: Call the train function to start training your model
