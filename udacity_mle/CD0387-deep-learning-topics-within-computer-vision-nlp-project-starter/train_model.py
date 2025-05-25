@@ -18,7 +18,7 @@ import argparse
 
 #TODO: Import dependencies for Debugging andd Profiling
 
-def test(model, test_loader, criterion, hook):
+def test(model, test_loader, criterion, hook=None):
     '''
     TODO: Complete this function that can take a model and a 
           testing data loader and will get the test accuray/loss of the model
@@ -32,7 +32,9 @@ def test(model, test_loader, criterion, hook):
     # ===================================================#
     # 3. Set the SMDebug hook for the validation phase. #
     # ===================================================#
-    hook.set_mode(smd.modes.EVAL)
+    if hook:
+        hook.set_mode(smd.modes.EVAL)
+        
     test_loss = 0
     correct = 0
     with torch.no_grad():
@@ -54,7 +56,7 @@ def test(model, test_loader, criterion, hook):
     )
     
 
-def train(model, train_loader, epochs, criterion, optimizer, hook):
+def train(model, train_loader, epochs, criterion, optimizer, hook=None):
     '''
     TODO: Complete this function that can take a model and
           data loaders for training and will get train the model
@@ -62,7 +64,9 @@ def train(model, train_loader, epochs, criterion, optimizer, hook):
     '''
     
     model.train()
-    hook.set_mode(smd.modes.TRAIN)
+
+    if hook:
+        hook.set_mode(smd.modes.TRAIN)
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model=model.to(device)
@@ -95,15 +99,13 @@ def net():
           Remember to use a pretrained model
     '''
 
-    # model = models.resnet18(weights=True)
-    model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
-
+    model = models.resnet18(weights='DEFAULT')
     for param in model.parameters():
         param.requires_grad = False   
 
     num_features=model.fc.in_features
     model.fc = nn.Sequential(
-                   nn.Linear(num_features, 10))
+                   nn.Linear(num_features, 133))
     
     return model
     
@@ -125,9 +127,9 @@ def create_data_loaders(data_train, data_valid, data_test, batch_size):
     valid_dataset = datasets.ImageFolder(root=data_valid, transform=transform)
     test_dataset  = datasets.ImageFolder(root=data_test,  transform=transform)
     
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4)
-    valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
-    test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, num_workers=4)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
+    valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
+    test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, num_workers=2)
 
     return train_loader, valid_loader, test_loader
  
@@ -149,8 +151,11 @@ def main(args):
     loss_criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
 
-    hook = smd.Hook.create_from_json_file()
-    hook.register_hook(model)
+    if os.path.exists('/opt/ml/input/config/debughookconfig.json'):
+        hook = smd.Hook.create_from_json_file()
+        hook.register_hook(model)
+    else:
+        hook = None
     
     '''
     TODO: Call the train function to start training your model
