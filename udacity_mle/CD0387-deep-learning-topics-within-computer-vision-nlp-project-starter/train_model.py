@@ -18,7 +18,7 @@ import argparse
 
 #TODO: Import dependencies for Debugging andd Profiling
 
-def test(model, test_loader, hook):
+def test(model, test_loader, criterion, hook):
     '''
     TODO: Complete this function that can take a model and a 
           testing data loader and will get the test accuray/loss of the model
@@ -40,7 +40,8 @@ def test(model, test_loader, hook):
             data=data.to(device)
             target=target.to(device)
             output = model(data)
-            test_loss += F.nll_loss(output, target, reduction="sum").item()  # sum up batch loss
+            # test_loss += F.nll_loss(output, target, reduction="sum").item()  # sum up batch loss
+            test_loss += criterion(output, target)
             pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
             correct += pred.eq(target.view_as(pred)).sum().item()
 
@@ -72,7 +73,8 @@ def train(model, train_loader, epochs, criterion, optimizer, hook):
             target=target.to(device)
             optimizer.zero_grad()
             output = model(data)
-            loss = F.nll_loss(output, target)
+            # loss = F.nll_loss(output, target)
+            loss = criterion(output, target)
             loss.backward()
             optimizer.step()
             if batch_idx % 100 == 0:
@@ -133,7 +135,7 @@ def create_data_loaders(data_train, data_valid, data_test, batch_size):
 def main(args):
 
     train_loader, valid_loader, test_loader = create_data_loaders(
-        args.data_train, args.data_valid, args.data_test, 32
+        args.data_train, args.data_valid, args.data_test, args.batch_size
     )
     
     '''
@@ -177,7 +179,7 @@ if __name__=='__main__':
     parser.add_argument(
         "--batch-size",
         type=int,
-        default=64,
+        default=32,
         metavar="N",
         help="input batch size for training (default: 64)",
     )
