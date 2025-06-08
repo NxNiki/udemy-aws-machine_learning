@@ -144,7 +144,7 @@ def main(args):
     TODO: Call the train function to start training your model
     Remember that you will need to set up a way to get training data from S3
     '''
-    model=train(model, train_loader, loss_criterion, optimizer)
+    model=train(model, train_loader, loss_criterion, optimizer, args.batch_size)
     
     '''
     TODO: Test the model to see its accuracy
@@ -158,11 +158,39 @@ def main(args):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
+    
     '''
     TODO: Specify all the hyperparameters you need to use to train your model.
     '''
     
-    args=parser.parse_args()
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=64,
+        metavar="N",
+        help="input batch size for training (default: 64)",
+    )
+    parser.add_argument(
+        "--test-batch-size",
+        type=int,
+        default=1000,
+        metavar="N",
+        help="input batch size for testing (default: 1000)",
+    )
+    parser.add_argument(
+        "--epochs",
+        type=int,
+        default=2,
+        metavar="N",
+        help="number of epochs to train (default: 14)",
+    )
+    parser.add_argument(
+        "--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)"
+    )
+    args = parser.parse_args()
+
+    train_kwargs = {"batch_size": }
+    test_kwargs = {"batch_size": args.test_batch_size}
     
     main(args)
