@@ -8,6 +8,9 @@ import torchvision
 import torchvision.models as models
 import torchvision.transforms as transforms
 import os
+from torchvision import datasets
+from torch.utils.data import DataLoader
+import smdebug.pytorch as smd
 
 import argparse
 
@@ -36,7 +39,7 @@ def test(model, test_loader, criterion, hook=None):
             target=target.to(device)
             output = model(data)
             # test_loss += F.nll_loss(output, target, reduction="sum").item()  # sum up batch loss
-            test_loss += criterion(output, target)
+            test_loss += criterion(output, target).item()
             pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
             correct += pred.eq(target.view_as(pred)).sum().item()
 
@@ -118,7 +121,7 @@ def create_data_loaders(data_train, data_test, batch_size_train, batch_size_test
     train_dataset = datasets.ImageFolder(root=data_train, transform=transform)
     test_dataset  = datasets.ImageFolder(root=data_test,  transform=transform)
     
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size_train, shuffle=True, num_workers=2)
     test_loader  = DataLoader(test_dataset,  batch_size=batch_size_test, shuffle=False, num_workers=2)
 
     return train_loader, test_loader
@@ -137,13 +140,13 @@ def main(args):
     TODO: Create your loss and optimizer
     '''
     loss_criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.fc.parameters(), lr=args.lr)
     
     '''
     TODO: Call the train function to start training your model
     Remember that you will need to set up a way to get training data from S3
     '''
-    model=train(model, train_loader, loss_criterion, optimizer, args.batch_size)
+    train(model, train_loader, args.epochs, loss_criterion, optimizer)
     
     '''
     TODO: Test the model to see its accuracy
@@ -157,6 +160,7 @@ def main(args):
 
 
 if __name__=='__main__':
+    
     parser = argparse.ArgumentParser(description="PyTorch dogImages model tunning")
     
     '''
@@ -164,14 +168,14 @@ if __name__=='__main__':
     '''
     
     parser.add_argument(
-        "--batch_size",
+        "--batch-size",
         type=int,
         default=64,
         metavar="N",
         help="input batch size for training (default: 64)",
     )
     parser.add_argument(
-        "--test_batch_size",
+        "--test-batch-size",
         type=int,
         default=1000,
         metavar="N",
@@ -187,7 +191,7 @@ if __name__=='__main__':
     parser.add_argument(
         "--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)"
     )
-    args = parser.parse_args()
+    
 
     # train_kwargs = {"batch_size": args.batch_size}
     # test_kwargs = {"batch_size": args.test_batch_size}
@@ -196,5 +200,7 @@ if __name__=='__main__':
     # for hyparameter tunning, we set valid as the test set:
     parser.add_argument("--data-test", type=str, default=os.environ["SM_CHANNEL_VALID"])
     parser.add_argument("--model-dir", type=str, default=os.environ["SM_MODEL_DIR"])
+
+    args = parser.parse_args()
     
     main(args)

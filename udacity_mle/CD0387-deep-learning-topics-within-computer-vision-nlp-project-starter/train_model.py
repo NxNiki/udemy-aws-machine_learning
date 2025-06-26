@@ -43,7 +43,7 @@ def test(model, test_loader, criterion, hook=None):
             target=target.to(device)
             output = model(data)
             # test_loss += F.nll_loss(output, target, reduction="sum").item()  # sum up batch loss
-            test_loss += criterion(output, target)
+            test_loss += criterion(output, target).item()
             pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
             correct += pred.eq(target.view_as(pred)).sum().item()
 
@@ -126,7 +126,7 @@ def create_data_loaders(data_train, data_test, batch_size_train, batch_size_test
     train_dataset = datasets.ImageFolder(root=data_train, transform=transform)
     test_dataset  = datasets.ImageFolder(root=data_test,  transform=transform)
     
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size_train, shuffle=True, num_workers=2)
     test_loader  = DataLoader(test_dataset,  batch_size=batch_size_test, shuffle=False, num_workers=2)
 
     return train_loader, test_loader
@@ -147,7 +147,7 @@ def main(args):
     TODO: Create your loss and optimizer
     '''
     loss_criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.fc.parameters(), lr=args.lr)
 
     if os.path.exists('/opt/ml/input/config/debughookconfig.json'):
         hook = smd.Hook.create_from_json_file()
