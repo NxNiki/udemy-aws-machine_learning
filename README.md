@@ -140,7 +140,11 @@ The activation function in the output layer determines whether the predicted cla
 
 
 
+## course 5: Operationalizing ML on SageMaker
 
+### resources:
+- [data-science-on-aws](https://github.com/data-science-on-aws/data-science-on-aws)
+- 
 
 
 
