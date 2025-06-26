@@ -13,6 +13,8 @@ from torch.utils.data import DataLoader
 import smdebug.pytorch as smd
 
 import argparse
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 def test(model, test_loader, criterion, hook=None):
     '''
@@ -121,8 +123,8 @@ def create_data_loaders(data_train, data_test, batch_size_train, batch_size_test
     train_dataset = datasets.ImageFolder(root=data_train, transform=transform)
     test_dataset  = datasets.ImageFolder(root=data_test,  transform=transform)
     
-    train_loader = DataLoader(train_dataset, batch_size=batch_size_train, shuffle=True, num_workers=2)
-    test_loader  = DataLoader(test_dataset,  batch_size=batch_size_test, shuffle=False, num_workers=2)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size_train, shuffle=True, num_workers=0)
+    test_loader  = DataLoader(test_dataset,  batch_size=batch_size_test, shuffle=False, num_workers=0)
 
     return train_loader, test_loader
 
