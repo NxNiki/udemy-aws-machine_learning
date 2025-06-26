@@ -7,6 +7,7 @@ import torch.optim as optim
 import torchvision
 import torchvision.models as models
 import torchvision.transforms as transforms
+import os
 
 import argparse
 
@@ -101,7 +102,7 @@ def net():
     return model
 
 
-def create_data_loaders(data_train, data_valid, data_test, batch_size):
+def create_data_loaders(data_train, data_test, batch_size_train, batch_size_test):
     '''
     This is an optional function that you may or may not need to implement
     depending on whether you need to use data loaders or not
@@ -115,19 +116,17 @@ def create_data_loaders(data_train, data_valid, data_test, batch_size):
     ])
 
     train_dataset = datasets.ImageFolder(root=data_train, transform=transform)
-    valid_dataset = datasets.ImageFolder(root=data_valid, transform=transform)
     test_dataset  = datasets.ImageFolder(root=data_test,  transform=transform)
     
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
-    valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
-    test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, num_workers=2)
+    test_loader  = DataLoader(test_dataset,  batch_size=batch_size_test, shuffle=False, num_workers=2)
 
-    return train_loader, valid_loader, test_loader
+    return train_loader, test_loader
 
 def main(args):
 
-    train_loader, valid_loader, test_loader = create_data_loaders(
-        args.data_train, args.data_valid, args.data_test, args.batch_size
+    train_loader, test_loader = create_data_loaders(
+        args.data_train, args.data_test, args.batch_size, args.test_batch_size
     )
     '''
     TODO: Initialize a model by calling the net function
@@ -149,30 +148,30 @@ def main(args):
     '''
     TODO: Test the model to see its accuracy
     '''
-    test(model, test_loader, criterion)
+    test(model, test_loader, loss_criterion)
     
     '''
     TODO: Save the trained model
     '''
-    torch.save(model, path)
+    torch.save(model.state_dict(), os.path.join(args.model_dir, "model.pth"))
 
 
 if __name__=='__main__':
-    parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
+    parser = argparse.ArgumentParser(description="PyTorch dogImages model tunning")
     
     '''
     TODO: Specify all the hyperparameters you need to use to train your model.
     '''
     
     parser.add_argument(
-        "--batch-size",
+        "--batch_size",
         type=int,
         default=64,
         metavar="N",
         help="input batch size for training (default: 64)",
     )
     parser.add_argument(
-        "--test-batch-size",
+        "--test_batch_size",
         type=int,
         default=1000,
         metavar="N",
@@ -181,7 +180,7 @@ if __name__=='__main__':
     parser.add_argument(
         "--epochs",
         type=int,
-        default=2,
+        default=14,
         metavar="N",
         help="number of epochs to train (default: 14)",
     )
@@ -190,7 +189,12 @@ if __name__=='__main__':
     )
     args = parser.parse_args()
 
-    train_kwargs = {"batch_size": }
-    test_kwargs = {"batch_size": args.test_batch_size}
+    # train_kwargs = {"batch_size": args.batch_size}
+    # test_kwargs = {"batch_size": args.test_batch_size}
+
+    parser.add_argument("--data-train", type=str, default=os.environ["SM_CHANNEL_TRAIN"])
+    # for hyparameter tunning, we set valid as the test set:
+    parser.add_argument("--data-test", type=str, default=os.environ["SM_CHANNEL_VALID"])
+    parser.add_argument("--model-dir", type=str, default=os.environ["SM_MODEL_DIR"])
     
     main(args)

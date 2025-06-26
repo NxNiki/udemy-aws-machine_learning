@@ -110,7 +110,7 @@ def net():
     return model
     
 
-def create_data_loaders(data_train, data_valid, data_test, batch_size):
+def create_data_loaders(data_train, data_test, batch_size_train, batch_size_test):
     '''
     This is an optional function that you may or may not need to implement
     depending on whether you need to use data loaders or not
@@ -124,20 +124,18 @@ def create_data_loaders(data_train, data_valid, data_test, batch_size):
     ])
 
     train_dataset = datasets.ImageFolder(root=data_train, transform=transform)
-    valid_dataset = datasets.ImageFolder(root=data_valid, transform=transform)
     test_dataset  = datasets.ImageFolder(root=data_test,  transform=transform)
     
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
-    valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
-    test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, num_workers=2)
+    test_loader  = DataLoader(test_dataset,  batch_size=batch_size_test, shuffle=False, num_workers=2)
 
-    return train_loader, valid_loader, test_loader
+    return train_loader, test_loader
  
 
 def main(args):
 
-    train_loader, valid_loader, test_loader = create_data_loaders(
-        args.data_train, args.data_valid, args.data_test, args.batch_size
+    train_loader, test_loader = create_data_loaders(
+        args.data_train, args.data_test, args.batch_size, args.test_batch_size
     )
     
     '''
@@ -213,7 +211,6 @@ if __name__=='__main__':
     parser.add_argument("--current-host", type=str, default=os.environ["SM_CURRENT_HOST"])
     parser.add_argument("--model-dir", type=str, default=os.environ["SM_MODEL_DIR"])
     parser.add_argument("--data-train", type=str, default=os.environ["SM_CHANNEL_TRAIN"])
-    parser.add_argument("--data-valid", type=str, default=os.environ["SM_CHANNEL_VALID"])
     parser.add_argument("--data-test", type=str, default=os.environ["SM_CHANNEL_TEST"])
     parser.add_argument("--num-gpus", type=int, default=os.environ["SM_NUM_GPUS"])
     
