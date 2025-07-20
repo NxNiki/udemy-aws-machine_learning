@@ -26,14 +26,27 @@ Remember that your README should:
 ## Debugging and Profiling
 **TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker
 
+Use profiling first to optimize resource usage and reduce training costs.
+
+Use debugging rules during development to catch model issues early.
+
+Save only relevant tensors to reduce S3 usage.
+
+Visualize results in SageMaker Studio or export for further analysis in Jupyter.
+
 ### Results
 **TODO**: What are the results/insights did you get by profiling/debugging your model?
+
+The instance for tuning and training job is large enough. But training job do not need "ml.m5.xlarge"
+The debugging rules shows there is no overfitting or gradient vanishing.
 
 **TODO** Remember to provide the profiler html/pdf file in your submission.
 
 
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+
+We need to make sure the data loader and preprocessing steps are same as in the tuning and training job.
 
 **TODO** Remember to provide a screenshot of the deployed active endpoint in Sagemaker.
 
