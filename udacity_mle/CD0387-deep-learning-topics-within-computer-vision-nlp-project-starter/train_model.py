@@ -126,8 +126,8 @@ def create_data_loaders(data_train, data_test, batch_size_train, batch_size_test
     train_dataset = datasets.ImageFolder(root=data_train, transform=transform)
     test_dataset  = datasets.ImageFolder(root=data_test,  transform=transform)
     
-    train_loader = DataLoader(train_dataset, batch_size=batch_size_train, shuffle=True, num_workers=2)
-    test_loader  = DataLoader(test_dataset,  batch_size=batch_size_test, shuffle=False, num_workers=2)
+    train_loader = DataLoader(train_dataset, batch_size=int(batch_size_train.strip('"')), shuffle=True, num_workers=2)
+    test_loader  = DataLoader(test_dataset,  batch_size=int(batch_size_test.strip('"')), shuffle=False, num_workers=2)
 
     return train_loader, test_loader
  
