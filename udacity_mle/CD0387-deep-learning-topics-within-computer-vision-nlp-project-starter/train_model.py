@@ -181,15 +181,15 @@ if __name__=='__main__':
     # Data and model checkpoints directories
     parser.add_argument(
         "--batch-size",
-        type=int,
-        default=32,
+        type=str,
+        default="64",
         metavar="N",
         help="input batch size for training (default: 64)",
     )
     parser.add_argument(
         "--test-batch-size",
-        type=int,
-        default=1000,
+        type=str,
+        default="1000",
         metavar="N",
         help="input batch size for testing (default: 1000)",
     )
