@@ -144,7 +144,13 @@ The activation function in the output layer determines whether the predicted cla
 
 ### resources:
 - [data-science-on-aws](https://github.com/data-science-on-aws/data-science-on-aws)
-- 
+
+### spot instance:
+The idle EC2 instance reserved for other users. Lower cost with lower reliability.
+
+[Official Documents for Splot instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+
+
 
 
 
