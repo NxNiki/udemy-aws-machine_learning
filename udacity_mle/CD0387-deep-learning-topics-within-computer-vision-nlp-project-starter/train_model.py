@@ -13,6 +13,9 @@ import smdebug.pytorch as smd
 from torchvision import models, datasets, transforms
 from torch.utils.data import DataLoader
 
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
 import argparse
 
 
