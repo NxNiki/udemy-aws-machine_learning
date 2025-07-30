@@ -2,3 +2,4 @@
 *.ipynb_checkpoints*
 *ubyte
 *ubyte.gz
+**/*.tar.gz
