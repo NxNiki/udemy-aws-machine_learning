@@ -167,7 +167,7 @@ def main(args):
     '''
     TODO: Test the model to see its accuracy
     '''
-    test(model, valid_loader, loss_criterion, hook)
+    test(model, train_loader, loss_criterion, hook)
     
     '''
     TODO: Save the trained model
