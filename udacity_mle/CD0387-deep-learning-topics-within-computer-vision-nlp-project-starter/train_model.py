@@ -70,6 +70,7 @@ def train(model, train_loader, epochs, criterion, optimizer, hook=None):
 
     if hook:
         hook.set_mode(smd.modes.TRAIN)
+        print("add training debug hook")
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model=model.to(device)
