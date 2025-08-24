@@ -151,6 +151,14 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 [Official Documents for Splot instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 
 
+### distributed training:
+
+- full replicated data
+- sharded data
+
+[advanced configuration](https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel.html)
+
+
 
 
 
