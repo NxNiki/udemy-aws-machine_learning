@@ -158,6 +158,8 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 
 [advanced configuration](https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel.html)
 
+[talk on distributed ML](https://www.youtube.com/watch?v=eVvjbTZc1CM)
+
 
 
 
