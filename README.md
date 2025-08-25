@@ -160,6 +160,12 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 
 [talk on distributed ML](https://www.youtube.com/watch?v=eVvjbTZc1CM)
 
+### lambda function：
+
+[beginner tutorial](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
+
+
+
 
 
 
