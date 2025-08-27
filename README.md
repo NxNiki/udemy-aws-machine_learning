@@ -158,7 +158,8 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 To achieve optimal use of compute resources and faster training speed, you need to configure `instances`, `VPC subset` and `data storage` in the sampe AWS region and Availability Zone.
 
 For instances, it is recommended to use `EFA-enabled GPU instances supported by SageMaker AI` (P4d and P4de instances equipped with NVIDIA A100 GPUs).
-> Not all instance types support distributed training. Check AWS official documents for instances supporting SMDDP (SageMaker AI distributed data parallelism).
+> Not all instance types support distributed training with SMDDP. Check AWS official documents for instances supporting SMDDP (SageMaker AI distributed data parallelism).
+> pytorch DDP is supported for most of instances.
 
 For data storage, it is recommended to use Amazon FSx for Lustre with high throughput for storing training datasets and model checkpoints.
 
