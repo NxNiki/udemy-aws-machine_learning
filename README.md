@@ -148,12 +148,14 @@ The activation function in the output layer determines whether the predicted cla
 ### spot instance:
 The idle EC2 instance reserved for other users. Lower cost with lower reliability.
 
-[Official Documents for Splot instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+[AWS Official Documents for Splot instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 
 
 ### distributed training:
 
-[Official Document for distributed training](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training-get-started.html)
+[Pytorch document for distributed training (DDP))(https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html)
+
+[AWS Official Document for distributed training](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training-get-started.html)
 
 To achieve optimal use of compute resources and faster training speed, you need to configure `instances`, `VPC subset` and `data storage` in the sampe AWS region and Availability Zone.
 
