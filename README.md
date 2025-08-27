@@ -170,6 +170,9 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 
 ### concurrency:
 
+- reserved concurrency
+- provisioned concurrency
+
 
 
 
