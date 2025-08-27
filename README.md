@@ -153,7 +153,7 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 
 ### distributed training:
 
-[Pytorch document for distributed training (DDP))(https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html)
+[Pytorch document for distributed training (DDP)](https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html)
 
 [AWS Official Document for distributed training](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training-get-started.html)
 
