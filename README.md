@@ -165,6 +165,12 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 [beginner tutorial](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
 
 
+### auto scaling:
+
+
+### concurrency:
+
+
 
 
 
