@@ -153,6 +153,12 @@ The idle EC2 instance reserved for other users. Lower cost with lower reliabilit
 
 ### distributed training:
 
+[Official Document for distributed training](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training-get-started.html)
+
+To achieve optimal use of compute resources and faster training speed, you need to configure `instances`, `VPC subset` and `data storage` in the sampe AWS region and Availability Zone.
+
+- AllReduce vs. AllGather
+
 - full replicated data
 - sharded data
 
