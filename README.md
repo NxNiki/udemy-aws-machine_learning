@@ -178,9 +178,11 @@ Distributed backend: determines how tensors/gradients are synchronized across de
 GPU-based backends
 - NCCL
 - Gloo
+
 High-performance networking backends
 - EFA (Elastic Fabric Adapter) with Libfabric
 - MPI (Message Passing Interface)
+
 Framework-specific backends
 - SMDDP (SageMaker Distributed Data Parallel): Built on top of NCCL + EFA, with extra optimizations for scaling.
 - BytePS (less common but supported)
