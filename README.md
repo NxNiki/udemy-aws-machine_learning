@@ -173,6 +173,19 @@ For data storage, it is recommended to use Amazon FSx for Lustre with high throu
 - full replicated data
 - sharded data
 
+Distributed backend: determines how tensors/gradients are synchronized across devices.
+
+GPU-based backends
+- NCCL
+- Gloo
+High-performance networking backends
+- EFA (Elastic Fabric Adapter) with Libfabric
+- MPI (Message Passing Interface)
+Framework-specific backends
+- SMDDP (SageMaker Distributed Data Parallel): Built on top of NCCL + EFA, with extra optimizations for scaling.
+- BytePS (less common but supported)
+- TensorFlow CollectiveOps
+
 [advanced configuration](https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel.html)
 
 [talk on distributed ML](https://www.youtube.com/watch?v=eVvjbTZc1CM)
